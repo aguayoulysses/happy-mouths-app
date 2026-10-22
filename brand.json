@@ -1,0 +1,28 @@
+{
+  "name": "Your Brand",
+  "legalName": "Your Company LLC",
+  "domain": "yourbrand.com",
+  "supportEmail": "support@yourbrand.com",
+  "supportPhone": "",
+  "instagram": "",
+  "colors": {
+    "primary": "#feb925",
+    "primaryDeep": "#e6a10f",
+    "primarySoft": "#fff3d1"
+  },
+  "ios": {
+    "appId": "com.yourbrand.app",
+    "opsAppId": "com.yourbrand.ops",
+    "urlScheme": "yourbrand",
+    "teamId": ""
+  },
+  "welcomeVideo": "",
+  "team": [
+    {
+      "key": "rep",
+      "name": "Alex",
+      "title": "Your account manager",
+      "photo": "/brand/team/rep.png"
+    }
+  ]
+}

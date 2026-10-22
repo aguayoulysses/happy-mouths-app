@@ -1,0 +1,29 @@
+{
+  "demo": {
+    "image": "demo.jpg",
+    "quad": [
+      [
+        220,
+        361
+      ],
+      [
+        883,
+        361
+      ],
+      [
+        882,
+        791
+      ],
+      [
+        197,
+        788
+      ]
+    ],
+    "font": "reenie"
+  },
+  "demo-sad": {
+    "image": "demo-sad.jpg",
+    "kind": "caption",
+    "caption": "When {name} hasn't left me a review"
+  }
+}

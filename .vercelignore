@@ -1,0 +1,5 @@
+.venv-poster
+dashboard/build
+dashboard/ios
+scripts/__pycache__
+ops-app

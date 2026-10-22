@@ -1,0 +1,24 @@
+{
+  "originHash" : "f85e4f3f21b7ed2e3d8940882ea4d6f38fdda478a899373eeb69fc7fa4abe052",
+  "pins" : [
+    {
+      "identity" : "capacitor-swift-pm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ionic-team/capacitor-swift-pm.git",
+      "state" : {
+        "revision" : "0b6882e9a3288342aacf36348e5a94e4f1dd7b13",
+        "version" : "8.5.2"
+      }
+    },
+    {
+      "identity" : "twilio-voice-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twilio/twilio-voice-ios",
+      "state" : {
+        "revision" : "252800e133455e798d6caf82733326bc4bb981b9",
+        "version" : "6.13.7"
+      }
+    }
+  ],
+  "version" : 3
+}

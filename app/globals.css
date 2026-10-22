@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+/* Site, review gate, admin.
+   Warm white canvas, hairline borders, one accent (brand yellow).
+   The owner dashboard (./dashboard) carries its own copy of these tokens. */
+@theme {
+  --color-canvas: #ffffff;
+  --color-ground: #f7f6f2;
+  --color-ink: #111111;
+  --color-ink-soft: #4a4946;
+  --color-ink-mute: #9b978e;
+  --color-line: #e6e3dc;
+  --color-line-strong: #d3cfc5;
+  --color-sun: #feb925;
+  --color-sun-deep: #e6a10f;
+  --color-sun-soft: #fff3d1;
+  --color-cherry: #fd4347;
+  --color-cherry-soft: #ffe4e5;
+  --color-leaf: #2e9e5b;
+  --color-leaf-soft: #e1f4e8;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-baloo), "Arial Rounded MT Bold", ui-rounded, sans-serif;
+  --font-fun: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+  --color-paper: #fffdf7;
+  --color-mint: #35c48a;
+  --color-mint-soft: #d9f5e8;
+  --radius-card: 14px;
+  --shadow-card: 0 1px 2px rgba(26, 25, 23, 0.04), 0 8px 24px -12px rgba(26, 25, 23, 0.12);
+}
+
+:root {
+  color-scheme: only light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+.card {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  transition: transform 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-sun {
+  background: var(--color-sun);
+  color: var(--color-ink);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+.btn-sun:hover {
+  background: var(--color-sun-deep);
+}
+.btn-ink {
+  background: var(--color-ink);
+  color: #fff;
+}
+.btn-ink:hover {
+  background: #2c2a26;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line-strong);
+}
+.btn-ghost:hover {
+  background: var(--color-canvas);
+}
+
+.field {
+  width: 100%;
+  height: 2.9rem;
+  padding: 0 0.9rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 10px;
+  background: var(--color-canvas);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.field:focus {
+  border-color: var(--color-ink);
+  box-shadow: 0 0 0 3px rgba(254, 185, 37, 0.35);
+}
+textarea.field {
+  height: auto;
+  padding: 0.75rem 0.9rem;
+  line-height: 1.5;
+}
+
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* The marketing site. Same language as the owner app: flat white cards  */
+/* on light gray, heavy plain type, hard-hat yellow on black. Class names */
+/* are kept from the old sticker look so the pages did not need rewrites. */
+/* ------------------------------------------------------------------ */
+.fun {
+  font-family: var(--font-sans);
+  background: #f5f5f3;
+  color: var(--color-ink);
+  font-weight: 500;
+}
+.fun h1, .fun h2, .fun h3, .fun .display { font-family: var(--font-sans); font-weight: 800; line-height: 1.04; letter-spacing: -0.03em; }
+.sticker {
+  background: #fff;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.05);
+}
+.sticker-sun { background: var(--color-sun); border-color: var(--color-sun); }
+.sticker-cherry { background: var(--color-ink); border-color: var(--color-ink); color: #fff; }
+.sticker-mint { background: var(--color-mint); }
+.hi { background: linear-gradient(transparent 62%, var(--color-sun) 62%, var(--color-sun) 94%, transparent 94%); padding: 0 0.08em; }
+.btn-fun {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  height: 3.5rem; padding: 0 1.6rem;
+  border: 1px solid transparent; border-radius: 12px;
+  font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em;
+  background: var(--color-sun); color: var(--color-ink);
+  transition: background-color 120ms ease, opacity 120ms ease;
+}
+.btn-fun:hover { background: var(--color-sun-deep); }
+.btn-fun:active { opacity: 0.8; }
+.btn-fun.ghost { background: #fff; border-color: var(--color-line-strong); }
+.btn-fun.ghost:hover { background: #fafaf8; }
+.btn-fun.ink { background: var(--color-ink); color: #fff; }
+.btn-fun.ink:hover { background: #2c2a26; }
+
+/* a customer quote with a little tail */
+.bubble { position: relative; background: #fff; border: 1px solid var(--color-line); border-radius: 14px; padding: 12px 16px; box-shadow: 0 1px 2px rgba(17, 17, 17, 0.05); }
+.bubble::after {
+  content: ""; position: absolute; left: 26px; bottom: -8px; width: 14px; height: 14px;
+  background: #fff; border-right: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);
+  transform: rotate(45deg); border-bottom-right-radius: 3px;
+}
+.bubble.right::after { left: auto; right: 26px; }
+.bubble.sun { background: var(--color-ink); border-color: var(--color-ink); color: #fff; }
+.bubble.sun::after { background: var(--color-ink); border-color: var(--color-ink); }
+
+/* the load-in: headline lines slide up, the highlighter swipes, reviews arrive like texts */
+.line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+.line-in { display: block; animation: line-up 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+@keyframes line-up { from { transform: translateY(105%); } to { transform: none; } }
+
+.hi { background-repeat: no-repeat; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hi-load { animation: hi-sweep 560ms cubic-bezier(0.3, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+@keyframes hi-sweep { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+
+.pop { animation: pop 520ms cubic-bezier(0.34, 1.56, 0.64, 1) both; transform-origin: 15% 100%; }
+.pop:has(.bubble.right) { transform-origin: 85% 100%; }
+.pop-2 { animation-delay: 450ms; }
+.pop-3 { animation-delay: 800ms; }
+.pop-4 { animation-delay: 1100ms; }
+.pop:not(.pop-2, .pop-3, .pop-4) { animation-delay: 150ms; }
+@keyframes pop { from { opacity: 0; transform: translateY(14px) scale(0.7); } to { opacity: 1; transform: none; } }
+
+.fade-up { animation: rise 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+
+/* five stars land one at a time */
+.star { transform-box: fill-box; transform-origin: center; }
+.stars-live .star, .rv-in .star { animation: star-in 420ms cubic-bezier(0.34, 1.56, 0.64, 1) both; animation-delay: calc(var(--d, 0ms) + var(--i) * 80ms); }
+@keyframes star-in { from { opacity: 0; transform: scale(0) rotate(-40deg); } to { opacity: 1; transform: none; } }
+
+/* the mascot breathes, and wiggles when you poke it */
+.bob { animation: bob 3.6s ease-in-out infinite; transform-origin: 50% 90%; }
+.bob:hover { animation: wiggle 500ms ease-in-out; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-7px) rotate(-2deg); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-7deg); } 50% { transform: rotate(6deg); } 75% { transform: rotate(-3deg); } }
+
+/* scroll motion, switched on by app/_site/Motion.tsx */
+.rv-wait { opacity: 0; }
+.rv-in { animation: rise 640ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards; animation-delay: var(--d, 0ms); }
+[data-reveal="pop"].rv-in { animation: pop 520ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards; animation-delay: var(--d, 0ms); }
+[data-reveal="left"].rv-in { animation-name: from-left; }
+@keyframes from-left { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+.hi.rv-wait { opacity: 1; background-size: 0% 100%; }
+.hi.rv-in { animation: hi-sweep 620ms cubic-bezier(0.3, 0.7, 0.2, 1) both; animation-delay: calc(var(--d, 0ms) + 150ms); }
+[data-count].rv-wait { opacity: 1; }
+[data-count].rv-in { animation: none; }
+.hi[data-count].rv-in { animation: hi-sweep 1200ms cubic-bezier(0.3, 0.7, 0.2, 1) both; }
+
+/* cards that are links lift a little; buttons press */
+a.sticker, .sticker:has(> a.ink-underline:last-child) { transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+@media (hover: hover) {
+  a.sticker:hover, .sticker:has(> a.ink-underline:last-child):hover { transform: translateY(-4px); border-color: var(--color-ink); box-shadow: 0 6px 0 var(--color-ink); }
+  .btn-fun:hover { transform: translateY(-2px); }
+}
+.btn-fun { position: relative; overflow: hidden; transition: background-color 120ms ease, opacity 120ms ease, transform 160ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+.btn-fun:active { transform: translateY(1px) scale(0.98); }
+.btn-shine::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.7) 50%, transparent 65%);
+  transform: translateX(-110%); animation: shine 900ms ease-out 1500ms 1 both;
+}
+@keyframes shine { to { transform: translateX(110%); } }
+
+/* a built site scrolls itself inside the browser frame, stopping at each section like someone reading it */
+.tour { aspect-ratio: 1400 / 875; overflow: hidden; container-type: size; }
+.tour img { --travel: calc(-100% + 100cqh); animation: tour 44s ease-in-out 1.5s infinite; will-change: transform; }
+.tour:hover img { animation-play-state: paused; }
+@keyframes tour {
+  0%, 7% { transform: translateY(0); }
+  14%, 21% { transform: translateY(calc(var(--travel) * 0.28)); }
+  28%, 35% { transform: translateY(calc(var(--travel) * 0.4)); }
+  42%, 49% { transform: translateY(calc(var(--travel) * 0.57)); }
+  56%, 63% { transform: translateY(calc(var(--travel) * 0.7)); }
+  70%, 77% { transform: translateY(calc(var(--travel) * 0.82)); }
+  84%, 94% { transform: translateY(var(--travel)); }
+  100% { transform: translateY(0); }
+}
+
+/* FAQ answers slide open where the browser can do it */
+.fun { interpolate-size: allow-keywords; }
+.fun details::details-content { block-size: 0; overflow: clip; opacity: 0; transition: block-size 280ms ease, opacity 280ms ease, content-visibility 280ms allow-discrete; }
+.fun details[open]::details-content { block-size: auto; opacity: 1; }
+
+/* the trades ticker: black band, white words, yellow stars */
+.marquee { overflow: hidden; background: var(--color-ink); color: #fff; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track { display: flex; gap: 2.5rem; width: max-content; padding: 0.9rem 0; animation: slide 95s linear infinite; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; white-space: nowrap; }
+.marquee .text-cherry { color: var(--color-sun); }
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.stars { color: var(--color-sun); letter-spacing: 0.04em; }
+.ink-underline { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-color: var(--color-sun); }
+
+/* on yellow the underline goes ink so it stays visible */
+.sticker-sun .ink-underline, .bg-sun .ink-underline { text-decoration-color: var(--color-ink); }
+
+/* a black band section, like the rating card in the app */
+.band-ink { background: var(--color-ink); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .pop { animation: none !important; }
+  .rv-wait { opacity: 1 !important; }
+}
+
+/* the question form on the home page */
+.q-choice {
+  display: flex; align-items: center; gap: 0.75rem;
+  min-height: 3.5rem; padding: 0.6rem 0.9rem;
+  border: 1px solid var(--color-line-strong); border-radius: 12px;
+  background: #fff; text-align: left; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.q-choice:hover { background: var(--color-sun-soft); border-color: var(--color-ink); }
+.q-choice.on { background: var(--color-sun); border-color: var(--color-ink); }
+.q-key {
+  display: grid; place-items: center; flex: none;
+  width: 1.75rem; height: 1.75rem; border-radius: 6px;
+  background: var(--color-ink); color: var(--color-sun); font-size: 0.8rem;
+}
+.q-input {
+  display: block; width: 100%; padding: 0.5rem 0;
+  border: 0; border-bottom: 2px solid var(--color-line-strong); border-radius: 0;
+  background: transparent; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.01em;
+}
+.q-input::placeholder { color: var(--color-ink-mute); font-weight: 600; }
+.q-input:focus { outline: none; border-bottom-color: var(--color-ink); }

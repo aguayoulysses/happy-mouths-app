@@ -1,0 +1,13 @@
+{
+  "regions": ["pdx1"],
+  "crons": [
+    { "path": "/api/cron/send", "schedule": "*/5 * * * *" },
+    { "path": "/api/cron/imessage", "schedule": "* * * * *" },
+    { "path": "/api/cron/reviews", "schedule": "10 * * * *" },
+    { "path": "/api/cron/costs", "schedule": "30 9 * * *" },
+    { "path": "/api/cron/photos", "schedule": "0 17 * * *" },
+    { "path": "/api/cron/insights", "schedule": "20 11 * * *" },
+    { "path": "/api/cron/health", "schedule": "30 17 * * 1-5" },
+    { "path": "/api/cron/sites", "schedule": "15 14 * * *" }
+  ]
+}

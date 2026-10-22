@@ -1,0 +1,41 @@
+{
+  "name": "happy-mouths-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3017",
+    "build:web": "tsc -b && vite build --base=/app/ --outDir ../public/app --emptyOutDir",
+    "build:native": "tsc -b && vite build --base=./ --outDir dist --emptyOutDir --mode native",
+    "ios": "npm run build:native && npx cap sync ios && npx cap open ios",
+    "typecheck": "tsc -b",
+    "build:release": "tsc -b && vite build --base=./ --outDir dist --emptyOutDir --mode release",
+    "ios:release": "npm run build:release && npx cap sync ios && npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/ios": "^8.5.0",
+    "@capacitor/preferences": "^8.0.1",
+    "@capacitor/push-notifications": "^8.1.2",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.3",
+    "@fontsource-variable/baloo-2": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.2.5",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "hm-voice": "file:plugins/hm-voice",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0",
+    "@tailwindcss/vite": "^4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.0.4",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vite": "^8.2.0"
+  }
+}
